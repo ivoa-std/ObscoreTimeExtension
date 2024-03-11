@@ -6,4 +6,13 @@ document template
   <br />
   This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
   Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-  
+
+     _Obscore Time Extension_
+
+     Proposal for extending the Obscore standard with features related to Time properties of a data set.
+     
+     list of proposed properties
+     extension mechanism 
+       define an obs_time table to gather new features 
+       join it to the existing Obscore table
+       

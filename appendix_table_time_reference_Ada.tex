@@ -1,0 +1,62 @@
+
+\section{Recognized time scales }
+\label{appendix1}
+\begin{table}
+  \begin{center}
+    \caption{Recognized time scale values. \\ Table reference for time scales :  Table 2, p17 in Space-Time Coordinate Metadata for the Virtual Observatory
+Version 1.33}\label{tab:scales}
+      \begin{tabular}{p{0.15\textwidth}p{0.84\textwidth}}
+      \sptablerule
+      \textbf{Parameter} & \textbf{Explanation} \\\sptablerule
+TAI   & (International Atomic Time) atomic time standard maintained on the rotating geoid\\
+TT    & (Terrestrial Time; IAU standard) defined on the rotating geoid, usually derived as TAI + 32.184 s\\
+TDT   & (Terrestrial Dynamical Time) synonym for TT (deprecated)\\
+ET    & (Ephemeris Time) continuous with TT; should not be used for data taken after 1984-01-01 \\
+IAT   & synonym for TAI (deprecated) \\
+UT1   & (Universal Time) Earth rotation time \\
+UTC   & (Universal Time, Coordinated; default) runs synchronously with TAI, except for the occasional insertion of leap seconds intended to keep UTC within 0.9 s of UT1; as of 2012-07-01 UTC = TAI - 35 s \\
+GMT   & (Greenwich Mean Time) continuous with UTC; its use is deprecated for dates after 1972-01-01\\
+UT()  & (Universal Time, with qualifier) for high-precision use of radio signal distributions between 1955 and 1972; see Sect. A.9 \\
+GPS   & (Global Positioning System) runs (approximately) synchronously with TAI; GPS $\approx$ TAI - 19 s\\
+TCG   & (Geocentric Coordinate Time) TT reduced to the geocenter, corrected for the relativistic effects of the Earth’s rotation and gravitational potential; TCG runs faster than TT at a constant rate.\\
+TCB   & (Barycentric Coordinate Time) derived from TCG by a 4-dimensional transformation, taking into account the relativistic effects of the gravitational potential at the barycenter (relative to that on the rotating geoid) as well as velocity time dilation variations due to the eccentricity of the Earth’s orbit, thus ensuring consistency with fundamental physical constants; Irwin \& Fukushima (1999) provide a time ephemeris.\\
+TDB   & (Barycentric Dynamical Time) runs slower than TCB at a constant rate so as to remain approximately in step with TT; runs therefore quasi-synchronously with TT, except for the relativistic effects introduced by variations in the Earth’s velocity relative to the barycenter; when referring to celestial observations, a pathlength correction to the barycenter may be needed which requires the Time Reference Direction used in calculating the pathlength correction.\\
+LOCAL & for simulation data and for free-running clocks.\\
+    \sptablerule
+      \end{tabular}
+%      \textbf{Notes.}
+%      $^{(1)}$ Specific realizations may be appended to these values, in parentheses; see text. For a more detailed discussion of time scales, see Appendix A.
+%      $^{(2)}$ Recognized values for TIMESYS, CTYPEia, TCTYPn, TCTYna.
+  \end{center}
+\end{table}
+
+
+\begin{table}
+  \begin{center}
+    \caption{Recognized time reference positions. Table reference for time position : Table 1, p15 in Space-Time Coordinate Metadata for the Virtual Observatory
+Version 1.33, \url{https://www.ivoa.net/documents/REC/DM/STC-20071030.pdf} }\label{tab:positions}
+      \begin{tabular}{p{0.25\textwidth}p{0.74\textwidth}}
+      \sptablerule
+      \textbf{Parameter} & \textbf{Explanation} \\\sptablerule
+TOPOCENTER  &	Topocenter: the location from where the observation was made (default)\\
+GEOCENTER   &	Geocenter\\
+BARYCENTER  &	Barycenter of the Solar System\\
+RELOCATABLE &	Relocatable: to be used for simulation data only\\
+CUSTOM	    & A position specified by coordinates that is not the observatory location\\
+%Less common allowed standard values are:\\
+HELIOCENTER & 	Heliocenter\\
+GALACTIC    &	Galactic center\\
+EMBARYCENTER&	Earth-Moon barycenter\\
+MERCURY	    & Center of Mercury\\
+VENUS	    & Center of Venus\\
+MARS	    & Center of Mars\\
+JUPITER	    & Barycenter of the Jupiter system\\
+SATURN	    & Barycenter of the Saturn system\\
+URANUS	    & Barycenter of the Uranus system\\
+NEPTUNE	    & Barycenter of the Neptune system\\
+          \sptablerule
+      \end{tabular}
+      \end{center}
+\end{table}
+
+  

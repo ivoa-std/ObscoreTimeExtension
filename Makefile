@@ -2,20 +2,20 @@
 # for the targets available.
 
 # short name of your document (edit $DOCNAME.tex; would be like RegTAP)
-DOCNAME = ????
+DOCNAME = ObscoreTimeExtension
 
 # count up; you probably do not want to bother with versions <1.0
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = ???
+DOCDATE = 2024-05-16
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
-DOCTYPE = ???
+DOCTYPE = WD
 
 # An e-mail address of the person doing the submission to the document
 # repository (can be empty until a make upload is being made)
-AUTHOR_EMAIL=???
+AUTHOR_EMAIL=mireille.louys@unistra.fr
 
 # Source files for the TeX document (but the main file must always
 # be called $(DOCNAME).tex)
@@ -23,11 +23,11 @@ SOURCES = $(DOCNAME).tex
 
 # List of image files to be included in submitted package (anything that
 # can be rendered directly by common web browsers)
-FIGURES =
+FIGURES = role_diagram.pdf
 
 # List of PDF figures (figures that must be converted to pixel images to
 # work in web browsers).
-VECTORFIGURES =
+VECTORFIGURES = role_diagram.svg
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
 AUX_FILES =

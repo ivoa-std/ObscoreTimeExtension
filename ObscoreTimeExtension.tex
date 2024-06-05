@@ -420,7 +420,7 @@ All terms are proposed optional, but they are highly recommended especially for 
 \begin{sidewaystable}[!htb]
 \caption{ Time extension Table Summary. } %%%%%%%%%%%%%%%%%
 \centering
- \subcaption{Time reference frame for searching and comparing  temporally sampled datasets.   \label{tab:timereff}}
+ \subcaption{Time reference frame for searching and comparing temporally sampled datasets.   \label{tab:timereff}}
 %
   \begin{small}
   \begin{tabular}{|l|l|l|l|l|l|l|}
@@ -428,12 +428,12 @@ All terms are proposed optional, but they are highly recommended especially for 
 t-obs  attribute& Definition & VODML-ID  & TIMESYS &UCD & Units&Status\\
  &  & in Coords DM &  attribute& & &\\  \hline
 % Time Coordinate system						
-{\color{blue}t\_origin} & Time frame origin & TimeOffset.time0 & timeorigin & time.epoch &  &	opt	\\  \hline
-{\color{blue}t\_scale} &	Time frame scale & TimeFrame.timeScale &timescale& time.scale &	?&opt 	\\ \hline 
-{\color{blue}t\_refPosition} &  Time reference position & TimeFrame.refPosition& refposition & & &opt	\\  \hline 
-{\color{blue}t\_refDirection} &Time reference direction&TimeFrame.refDirection&refdirection &	& & opt 	\\ \hline 
+{\color{blue}t\_origin} & Time frame origin & TimeOffset.time0 & timeorigin & time.epoch &  &	man	\\  \hline
+{\color{blue}t\_scale} &	Time frame scale & TimeFrame.timeScale &timescale& time.scale &	?&man 	\\ \hline 
+{\color{blue}t\_refPosition} &  Time reference position & TimeFrame.refPosition& refposition & & &man	\\  \hline 
+{\color{blue}t\_refDirection} &Time reference direction&TimeFrame.refDirection&refdirection &	& & man 	\\ \hline 
 %Time representation  ISOtime, MJD, JD, ?						
-{\color{blue}t\_format}&	Time representation	& &  & time;meta.code.class&	null	&opt	\\ \hline 
+{\color{blue}t\_format}&	Time representation	& &  & time;meta.code.class&	null	&man	\\ \hline 
  
  \end{tabular}
  \bigskip
@@ -459,6 +459,8 @@ t-obs  attribute& Definition & VODML-ID  & TIMESYS &UCD & Units&Status\\
 {\color{blue}t\_delta\_max} & maximal length of time interval & Char.TimeAxis.Sampling.Period.hiLim & time.interval;& s & man\\ 
 & cadence (max)& & obs.sequence;stat.max& &  \\ \hline
 {\color{blue} t\_fold\_period}& Folding period length &  & time.period&d & opt  \\ \hline
+{\color{blue} t\_fold\phaseReference}& Folding convention: phase reference &  & meta.ref;time.phase&d & opt  \\ \hline
+
  \end{tabular}
 
   \end{small}

@@ -530,9 +530,10 @@ A \emph{t\_fold\_period} parameter set to zero means not folded  and clarifies i
  If this table contains an identifier for the corresponding dataset described in main \emph{ivoa.obscore} table, then it is easy to join  general Obscore properties to the time specific ones in an ADQL query.
  Here is a query  example :  ( to be checked) 
  \begin{lstlisting} [language=SQL, caption= Query example for Join between the main ObsCore table and the Time extension table]
- SELECT date_obs, obs_publisher_did, obs_collection, access.reference FROM ivoa.obscore 
- WHERE dataproduct_type=='ligh-curve'
- AND date_obs BETWEEN 36050  AND 36100
+ SELECT obs_id, t_min, t_max, obs_publisher_did, obs_collection, access.reference FROM ivoa.obscore 
+ WHERE dataproduct_type=='light-curve'
+ AND t_min > 55197 
+ AND t_max < 55204
  JOIN ivoa.t-obs as tt
  ON obs_publisher_did==tt.obs_publisher_did
   WHERE tt.delta_min < 10s AND  tt.t_xel > 10

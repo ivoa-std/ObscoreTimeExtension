@@ -3,7 +3,7 @@ name: Update PDF Preview
 defaults:
   run:
     shell: bash
-    working-directory: doc
+    working-directory: .
 
 env:
   doc_name: ObsCoreTimeExtension

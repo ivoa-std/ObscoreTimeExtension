@@ -8,7 +8,7 @@ DOCNAME = ObscoreTimeExtension
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2024-05-16
+DOCDATE = 2024-06-05
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = WD

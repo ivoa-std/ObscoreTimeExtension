@@ -347,13 +347,13 @@ This parameter is worth to include in the Time ObsCore extension table.
   \begin{small}
   \begin{tabular}{|l|l|l|}
 \sptablerule
-\textbf{Main dataproduct\_type} & \textbf{o\_ucd}  &\textbf{time\_variant}   \\ \hline
+\textbf{Main dataproduct\_type} & \textbf{o\_ucd}  &\textbf{time\_variant component }   \\ \hline
 light curve & phot.flux &  scalar value \\ \hline
 velocity curve & doppler.veloc & scalar value \\ \hline 
 trajectory & pos.eq  &  sky position (vector) \\ \hline
-dynamic spectrum & phot.flux & dp:spectrum \\ \hline
-movie &   phot.flux & dp:image \\ \hline
-time cube & phot.flux & dp:cube \\ \hline
+dynamic spectrum & phot.flux & spectrum \\ \hline
+movie &   phot.flux & image \\ \hline
+time cube & phot.flux & cube \\ \hline
  \end{tabular}
   \end{small}
   \end{center}
@@ -405,8 +405,8 @@ This parameter entails the number of observations in the time series. It is impo
 
  \subsection{Time series uses cases already covered by ObsCore1.1}
  Several uses-cases for time series discoveries were considered in the ObsCore 1.1 specification, built on its short list of time related features.
-They are available in appendix A section A.4. Discovering time series . 
-Here the \emph{dataproduct\_type} value is "timeseries", very general, but the same uses cases can be applied for more specific time sampled datasets like "time-cube" or or "light-curve" available now in the \bf{product-type} vocabulary . 
+They are available in appendix A in section A.4. Discovering time series. 
+Here the \emph{dataproduct\_type} value is "timeseries", very general, but the same uses cases can be applied for more specific time sampled datasets like "time-cube" or or "light-curve" available now in the \textbf{product-type} vocabulary . 
 ObsCore uses cases are also provided  in a web page available at : \url{http://saada.unistra.fr/voexamples/show/ObsCore/}.
 
  \section{Time parameters proposed for Obscore Extension }

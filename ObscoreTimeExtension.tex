@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 %\usepackage[table]{xcolor}
-%\usepackage{todonotes}
+\usepackage{todonotes}
 
 \usepackage{listings}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -121,6 +121,7 @@ The \href{https://www.ivoa.net}{International
 Virtual Observatory Alliance (IVOA)} is a global
 collaboration of separately funded projects to develop standards and
 infrastructure that enable VO applications.
+
 
 
 \section{Introduction}
@@ -552,7 +553,7 @@ Both attributes enable to study the periodicity of the signal and compare betwee
 
  If this table contains an identifier for the corresponding dataset described in main \emph{ivoa.obscore} table, then it is easy to join  general Obscore properties to the time specific ones in an ADQL query.
  Here is a query  example :  ( to be checked) 
- \begin{lstlisting} [language=SQL, caption= Query example for Join between the main ObsCore table and the Time extension table]
+ \begin{lstlisting} [language=SQL, caption= Query example with  a JOIN between the main ObsCore table and the Time extension table]
 
  SELECT obs_id, t_min, t_max, obs_publisher_did, obs_collection, access.reference FROM ivoa.obscore 
  WHERE dataproduct_type=='light-curve'
@@ -577,7 +578,7 @@ This would guarantee that all the tables for data discovery are grouped together
 
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
-\section{References}
+%\section{References}
 \bibliography{ivoatex/ivoabib, ivoatex/docrepo, ivoatex/myref}
  % note:TSSerialisationNote
 
@@ -587,7 +588,7 @@ This would guarantee that all the tables for data discovery are grouped together
  
 
 \section{Query examples for join tables}\label{sec:query_examples}
-
+\todo{Other examples of join and uses cases}
 
 \section{Previous work on the Time series characterization and description}. 
 

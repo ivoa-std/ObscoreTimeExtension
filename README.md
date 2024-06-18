@@ -1,5 +1,5 @@
 [![PDF-Preview](https://img.shields.io/badge/Preview-PDF-blue)](../../releases/download/auto-pdf-preview/ObscoreTimeExtension-draft.pdf)
-[![PDF Preview](https://github.com/ivoa/HighEnergyDataNote/actions/workflows/preview.yml/badge.svg)](https://github.com/ivoa-std/ObscoreTimeExtension/actions/workflows/preview.yml)
+[![PDF Preview](https://github.com/ivoa-std/ObscoreTimeExtension/actions/workflows/preview.yml/badge.svg)](https://github.com/ivoa-std/ObscoreTimeExtension/actions/workflows/preview.yml)
 
 # Obscore Time Extension
 

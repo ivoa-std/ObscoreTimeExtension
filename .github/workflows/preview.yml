@@ -7,7 +7,7 @@
 name: Update PDF Preview
 
 env:
-  doc_name: ObscoreTimeExtension
+  doc_name:
 
 on:
   push:

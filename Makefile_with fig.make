@@ -8,7 +8,7 @@ DOCNAME = ObscoreTimeExtension
 DOCVERSION = 1.0
 
 # Publication date, ISO format; update manually for "releases"
-DOCDATE = 2024-06-14
+DOCDATE = 2024-06-13
 
 # What is it you're writing: NOTE, WD, PR, REC, PEN, or EN
 DOCTYPE = WD
@@ -23,11 +23,11 @@ SOURCES = $(DOCNAME).tex
 
 # List of image files to be included in submitted package (anything that
 # can be rendered directly by common web browsers)
-FIGURES =
+FIGURES = role_diagram.pdf
 
 # List of PDF figures (figures that must be converted to pixel images to
 # work in web browsers).
-VECTORFIGURES = 
+VECTORFIGURES = role_diagram.svg
 
 # Additional files to distribute (e.g., CSS, schema files, examples...)
 AUX_FILES =

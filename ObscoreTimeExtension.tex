@@ -337,7 +337,7 @@ That is why \emph{dataproduct\_type} should be enriched in ObsCore, and harmoniz
 
 \subsection{Mentioning what part of the dataset varies with time }
 \label{sec:timevariant}
-Obscore 1.1 uses the attribute \emph{o\_ucd} to describe what is the quantity observed depending on the various physical axes of the data product. The  UCD string corresponding to the observable in  a one dimensional dataset is  easy to choose in the UCD list.  We propose to extend this definition to generalize for time series of multiple dimensional data sets and add a \emph{time\_variant} attribute in ObsCore.
+ObsCore 1.1 uses the attribute \emph{o\_ucd} to describe what is the quantity observed depending on the various physical axes of the data product. The  UCD string corresponding to the observable in  a one dimensional dataset is  easy to choose in the UCD list.  We propose to extend this definition to generalize for time series of multiple dimensional data sets and add a \emph{time\_variant} attribute in ObsCore.
 In a time series, the principal axis considered is the Time axis. The time variant component can be either one dimensional, like for a light curve or velocity curve, or multi-dimensional. The time series is viewed as  time dependent sequence of components, which can be characterized  by a data product type, such as an image, a spectrum, a spectral cube, etc., also  defined in the product-type vocabulary. Table \ref{tab:timevar} summarizes the use of \emph{ time\_variant}  in various cases.
 This parameter is worth to include in the Time ObsCore extension table.
 
@@ -371,7 +371,7 @@ time cube & phot.flux & cube \\ \hline
   This parameter represents the duration or live time of the observation.
   For a light-curve it is the sum of all valid time samples. For instance for a time-cube it is the total exposure time summing up all the poses.
   \subsubsection{t\_resolution}
-  t\_resolution can be defined as the time limit under which two observable quantities cannot be distinguished from each other.
+  \emph{t\_resolution} can be defined as the time limit under which two observable quantities cannot be distinguished from each other.
   This works for event-list, light-curve, time-cube data sets, etc.
   \subsubsection{t\_xel, number of time stamps}
 This parameter entails the number of observations in the time series. It is important to query for guessing how rich is the dataset, especially for observing variability.
@@ -410,7 +410,7 @@ They are available in appendix A in section A.4. Discovering time series.
 Here the \emph{dataproduct\_type} value is "timeseries", very general, but the same uses cases can be applied for more specific time sampled datasets like "time-cube" or or "light-curve" available now in the \textbf{product-type} vocabulary .
 ObsCore uses cases are also provided  in a web page available at : \url{http://saada.unistra.fr/voexamples/show/ObsCore/}.
 
- \section{Time parameters proposed for Obscore Extension }
+ \section{Time parameters proposed for ObsCore Extension }
  \label{sec:timeext}
 
   \subsection{Time Frame description}
@@ -419,7 +419,7 @@ This metadata was described first in the STC data model  \citep{2007ivoa.spec.10
 Up to now, this metadata  was not defined in ObsCore1.1. It is coded into the VOTable  metadata of the dataset.
 Having  it as  part of the query response coming back for a search for time series would help the user application to interpret time stamps precisely.
 MJD is the time format used for an ObsTAP query related to time.
-We propose to add the time frame parameters in the Time Obscore extension.
+We propose to add the time frame parameters in the Time ObsCore extension.
 These various definitions are harmonized in the proposal given in  table \ref{tab:timereff}. We list the corresponding terms used in the Coords Data model and in the UCD vocabulary, as well as the attribute of the TIMESYS param defined for VOTable serialization.
 All terms are proposed as mandatory, but can be set to UNKNOWN if not available.
 With the expansion of massive time series datasets, where efficient data discovery will serve the selection of big training sets for analysis workflows,
@@ -512,7 +512,7 @@ Both attributes enable to study the periodicity of the signal and compare betwee
 %
 % \begin{sidewaystable}[!htb]
 % % \begin{center}
-%  \caption{Table of  Obscore Time extension  attributes, \\ Here are the extended features for comparing time sampled data sets.\label{tab:time_ext}}
+%  \caption{Table of  ObsCore Time extension  attributes, \\ Here are the extended features for comparing time sampled data sets.\label{tab:time_ext}}
 %   \begin{small}
 %  \begin{tabular}{|l|l|l|l|l|l|}
 % \hline
@@ -540,18 +540,18 @@ Both attributes enable to study the periodicity of the signal and compare betwee
  % note:TSSerialisationNote
  An ObsTAP service is considered compliant to the standard if it serves all the attributes tagged as mandatory in the specification.
  These are gathered in the TAP\_SCHEMA in the table usually named \emph{ivoa.obscore}.
- Following the practice introduced  for EPNTap,  the utype column in \emph{ivoa.obscore} should be the standard identifier of the specification supported by the table content, so here \texttt{ivo://ivoa.net/std/obscore\#table-1.1}
+ Following the practice introduced  for EPNTap,  the utype column in \emph{ivoa.obscore} should be the standard identifier of the specification supported by the table content, so here \\ \texttt{ivo://ivoa.net/std/obscore\#table-1.1} .
 
  This table can also hold more columns corresponding to  optional attributes, as summarized in the Table 7 - Optional Parameters  of the ObsCore specification.
  There is no guarantee that an optional parameter will be filled in an ObsTAP service; this must be checked first by the user.
 
- Therefore the Time extension for Obscore should rely on mandatory parameters.
- They may be set UNKNOWN if unknown.
+ Therefore the Time extension for ObsCore should rely on mandatory parameters.
+ If they cannot be retrieved nor calculated from the data they may be set to UNKNOWN.
  In order to warn users that extra time parameters have been included in ObsTAP, we propose to gather them  in another table named \emph{ivoa.t-obs}
  for services that distribute time sampled data sets.
  The utype column in  \emph{ivoa.t\_obs} should be the standard identifier of this specification, so here \texttt{ivo://ivoa.net/std/obscore\#t-obs-1.0}.
 
- If this table contains an identifier for the corresponding dataset described in main \emph{ivoa.obscore} table, then it is easy to join  general Obscore properties to the time specific ones in an ADQL query.
+ If this table contains an identifier for the corresponding dataset described in main \emph{ivoa.obscore} table, then it is easy to join  general ObsCore properties to the time specific ones in an ADQL query.
  Here is a query  example :  ( to be checked)
  \begin{lstlisting} [language=SQL, caption= Query example with  a JOIN between the main ObsCore table and the Time extension table]
 
@@ -561,14 +561,15 @@ Both attributes enable to study the periodicity of the signal and compare betwee
  AND t_max < 55204
  JOIN ivoa.t-obs as tt
  ON obs_publisher_did==tt.obs_publisher_did
-  WHERE tt.delta_min < 10s AND  tt.t_xel > 10
+  WHERE tt.delta_min < 10s AND  tt.t_fold == 0
  \end{lstlisting}
 
 Other examples of queries using these extra parameters are proposed in Appendix \ref{sec:query_examples}.
 
 More generally, other extensions can be considered in ObsTAP, like the radio extension or high energy extension specific to these spectral domains and instrumentations.
 In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.t-obs, ivoa.radio, ivoa.heig etc.... when needed.
-This would guarantee that all the tables for data discovery are grouped together and discovered, and that the service can allow the table joins.
+This would help to identify ObsCore services with their version and discover all ObsCore table extensions in the TAP service description in order to write up queries with JOIN. 
+
 % exemples of joins
 
 %SELECT TOP 10 lat, long, flux
@@ -579,7 +580,7 @@ This would guarantee that all the tables for data discovery are grouped together
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
 %\section{References}
-\bibliography{ivoatex/ivoabib, ivoatex/docrepo, ivoatex/myref}
+\bibliography{ivoatex/ivoabib, ivoatex/docrepo, myref}
  % note:TSSerialisationNote
 
 
@@ -598,7 +599,6 @@ This would guarantee that all the tables for data discovery are grouped together
 Version 1.33, \url{https://www.ivoa.net/documents/REC/DM/STC-20071030.pdf}
 \item Table reference for time scales :  Table 2, p17 in Space-Time Coordinate Metadata for the Virtual Observatory
 Version 1.33
-\item
 \end{itemize}
 
 \section{Vocabulary enhancement}

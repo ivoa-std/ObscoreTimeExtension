@@ -419,6 +419,7 @@ This metadata was described first in the STC data model  \citep{2007ivoa.spec.10
 Up to now, this metadata  was not defined in ObsCore1.1. It is coded into the VOTable  metadata of the dataset.
 Having  it as  part of the query response coming back for a search for time series would help the user application to interpret time stamps precisely.
 %MJD is the time format used for an ObsTAP query related to time.
+
 We propose to add the time frame parameters in the Time ObsCore extension.
 These various definitions are harmonized in the proposal given in  table \ref{tab:timereff}. We list the corresponding terms used in the Coords Data model and in the UCD vocabulary, as well as the attribute of the TIMESYS param defined for VOTable serialization.
 All terms are proposed as mandatory, but can be set to UNKNOWN if not available.
@@ -577,19 +578,17 @@ This would help to identify ObsCore services with their version and discover all
 %JOIN lightmeter.stations
 %USING (stationid)
 
+\appendix
+\include{appendix_table_time_reference_Ada}
+
+\section{Query examples for join tables}\label{sec:query_examples}
+\include{TDUC-discovery}
+
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
 %\section{References}
 
  % note:TSSerialisationNote
-
-
-\appendix
-\include{appendix_table_time_reference_Ada}
-
-
-\section{Query examples for join tables}\label{sec:query_examples}
-\include{TDUC-discovery}
 
 \bibliography{ivoatex/ivoabib, ivoatex/docrepo, myref}
 \section{Previous work on the Time series characterization and description}.

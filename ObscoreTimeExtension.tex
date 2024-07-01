@@ -93,7 +93,7 @@
 \begin{abstract}
 This IVOA specification details a list of metadata dealing with time-related features needed for  discovery
 of time series data sets, in the context of ObsTAP services.
-It is based on science cases explained in a previous IVOA note prepared in 2018 and recently revised \citep{note:TSSerialisationNote}.
+It is based on science cases explained in a previous IVOA note prepared in 2018 and recently revised \citep{TSNoteSerialisation}.
 Here we discuss various use-cases.
 We  highlight first which existing time related metadata in the ObsCore standard version 1.1 can be used,
 and second propose new features needed for an ObsCore time extension in order to allow more search criteria
@@ -132,7 +132,7 @@ In this specification we consider how the ObsCore metadata profile can be extend
 
 In this specification we examine how to enhance data discovery and data selection of time sampled data sets in the context of the ObsCore data model and its TAP implementations.
 The ObsCore Specification \cite{2017ivoa.spec.0509L} proposes a set of features to describe the data present in a data set as well as metadata about its acquisition, creation and publication (curation).
-The physical in terms of spatial, spectral, temporal, polarimetry, and observable measure  are also described by a group of features dedicated to each axis, and considered independant from each other. The idea is to provide a physical feature profile for each axis with coverage, sampling, resolution, etc.
+The physical properties in terms of spatial, spectral, temporal, polarimetry, and observable measure  are also described by a group of features dedicated to each axis, considered independent from others. The idea is to provide a physical feature profile for each axis with coverage, sampling, resolution, etc.
 Search criteria in ObsTAP  are based on these features.
 
 We examine in section \ref{sec:alreadythere} how the set of time parameters already present in ObsCore v1.1 can be used for time series discovery.
@@ -168,8 +168,8 @@ In this section we describe what Time Series data is in a wide context, describi
 
 \subsection{Definition}
 Time Series can be defined in a very large sense as a collection of any kind of data over time for a particular source (e.~g. star, binary, QSO) or part of a source (e.~g. sun spots), independent on the type of data (images, light-curves, radial velocity, polarisation states or degrees, positions, number of sunspots, densities,...), the duration of the signal integration or the cadence.
-To clarify the vocabulary here we consider a time series as a sequence of signal integrations, or snap-shots observing  an object or phenomenon over time, so diffrent observations over time.
-Considering how observations in general can be spanned along the time axis, we can sketch Time Series data as shown in Fig.~\ref{fig:time-series}. Time Series data is composed of a set of observations (n\_observations = 3 in this example), each with a different exposure or integration time (t\_exp). Although in some cases the cadence or time span between each signal intergration (delta\_t) is fixed, in the general case it can be different and we can therefore define a minimum and a maximum value (delta\_t\_min, delta\_t\_max). Each observation has it's own time stamp (\emph{t\_i)} with a given precision or resolution (t\_resolution). As can be seen from this figure the duration of the observation can be defined in different ways: a) as the total integration or exposure time, i.~e. the sum of all the exposure times: \emph{t\_exp\_total }= $\sum$ \emph{t\_exp} ; or b) as the time span between the beginning and the end of the observations: \emph{t\_exp\_total} = \emph{t\_max} - \emph{time\_min}). Note that in the case that the exposure time is constant for all the observations then \emph{t\_exp\_total }= n\_observations $\times$ \emph{t\_exp}. The situation can be more complicated, for instance during the observation there could be clouds and we therefore pause the exposure for a while and resume once the cloud has passed or we might want to remove parts of the observation due to artefacts in the data. In any case these values can be taken as approximative of the minimum and the maximum value this specific field can have.
+To clarify the vocabulary here we consider a time series as a sequence of signal integrations, or snap-shots observing  an object or phenomenon over time, so different observations over time.
+Considering how observations in general can be spanned along the time axis, we can sketch Time Series data as shown in Fig.~\ref{fig:time-series}. Time Series data is composed of a set of observations (n\_observations = 3 in this example), each with a different exposure or integration time (t\_exp). Although in some cases the cadence or time span between each signal integration (delta\_t) is fixed, in the general case it can be different and we can therefore define a minimum and a maximum value (delta\_t\_min, delta\_t\_max). Each observation has it's own time stamp (\emph{t\_i)} with a given precision or resolution (t\_resolution). As can be seen from this figure the duration of the observation can be defined in different ways: a) as the total integration or exposure time, i.~e. the sum of all the exposure times: \emph{t\_exp\_total }= $\sum$ \emph{t\_exp} ; this represents the support along the time axis and is definitely different from  the elapsed time  emph{t\_elapsed} = \emph{t\_max} - \emph{time\_min}). Note that in the case that the exposure time is constant for all the observations then \emph{t\_exp\_total }= n\_observations $\times$ \emph{t\_exp}. The situation can be more complicated, for instance during the observation there could be clouds and we therefore pause the exposure for a while and resume once the cloud has passed or we might want to remove parts of the observation due to artefacts in the data. In any case these values can be taken as approximative of the minimum and the maximum value this specific field can have.
 
 The most relevant fields of Time Series metadata are summarized in Table~\ref{tab:fields}.
 
@@ -184,7 +184,7 @@ The most relevant fields of Time Series metadata are summarized in Table~\ref{ta
 
 \begin{table}[hb]
   \begin{center}
-  \caption{Time Series metadata fields.}
+  \caption{Time Series metadata fields needed for discovery.}
   \label{tab:fields}
     \begin{tabular}{p{0.35\textwidth}p{0.64\textwidth}}
       \sptablerule
@@ -213,7 +213,7 @@ See the IVOA product-type vocabulary at \url{https://www.ivoa.net/rdf/product-ty
 
 For this data to be fully exploitable and reusable (interoperable) it has to be properly documented. In this specific case the minimum information that needs to be provided is: the object coordinates (or name), the filter in which the observations have been carried out, and the time frame and offset (if applicable).
 However, the dimensionality of what is observed at the time stamps' sequence may correspond to 1D or 2D observations, like spectra or images  as well.
-That's why the dataproduct type  defined in ObsCore 1.1 should be more precise and eventually rely on the IVOA product-type vocabulary.
+That's why the data product type  defined in ObsCore 1.1 should be more precise and eventually rely on the IVOA product-type vocabulary.
 
 In addition, a mechanism should be defined to clarify what part of the data is varying with time, as described further in section \ref{sec:timevariant}.
 
@@ -249,7 +249,7 @@ Looking at the different science cases we simplify the questions to two:
 \item \emph{Is it possible to discover long/short term variability within the data?}
 
 \end{enumerate}
-To answer the first question a user needs to be sure that dates are comparable, that is time has to be brought into a common time frame.
+To answer the first question a user needs to be sure that dates are comparable, which means time has to be brought into a common time frame.
 To answer the second question we need to keep track of the minimum and maximum time span.
 
 \subsection{Using a common time frame}
@@ -276,7 +276,7 @@ To compare datasets from different missions or archives a common representation 
   \end{center}
 \end{table}
 
-We recommend to be specific on the time frame and we suggest to use:
+xxxxxx Common practice is to be specific on the time frame and we suggest to use:
 \begin{center}
   JD(TT;BARYCENTER)
 \end{center}
@@ -286,7 +286,7 @@ We also give some values that can be used as default in the case that some infor
 ObsCore has a normalized description of the data content along the various physical axes where the data are projected.
 The spatial properties are described in the \emph{s\_*} group, the spectral ones in \emph{em\_*} group, the temporal ones in \emph{t\_*}, etc.
 For each data set there is a minimal  set of metadata to describe its sky position, spectral band, time interval, etc. which are independent from each other.
-This allows to enhance time sampling description by adding new parameters to the time group without putting the ObsCore existing model at risk.
+This allows to enhance time sampling description by adding new parameters to the time group, in order to warrant backward compatibility to ObsCore 1.1 . 
 
 \subsection{Extension of ObsCore based on EPNCore}
 Astronomy and space science both consider time series data and have proposed metadata data description for it. Some metadata have already been defined and used in the context of data discovery using ObsCore \cite{2017ivoa.spec.0509L}, and the remaining ones have been defined in the context of planetary data in the EPNcore specification \cite{2022ivoa.spec.0822E}. In Table~\ref{tab:obs_epn} we show the equivalence between the fields we require here and those existing in  ObsCore and EPNcore specifications.
@@ -313,7 +313,7 @@ Astronomy and space science both consider time series data and have proposed met
     \hline
     t\_exp\_max     &  -                     & time\_exp\_max            \\
     \hline
-    t\_exp\_total   &  t\_exp                & -                         \\
+    t\_exp\_total   &  t\_exptime              & -                         \\
     \hline
     delta\_min      &  -                     & time\_sampling\_step\_min \\
     \hline
@@ -352,8 +352,8 @@ This parameter is worth to include in the Time ObsCore extension table.
 light curve & phot.flux &  scalar value \\ \hline
 velocity curve & doppler.veloc & scalar value \\ \hline
 trajectory & pos.eq  &  sky position (vector) \\ \hline
-dynamic spectrum & phot.flux & spectrum \\ \hline
-movie &   phot.flux & image \\ \hline
+spatial profile&  phot.flux & sky position \\ \hline
+movie & phot.flux & image \\ \hline
 time cube & phot.flux & cube \\ \hline
  \end{tabular}
   \end{small}
@@ -404,21 +404,21 @@ This parameter entails the number of observations in the time series. It is impo
  \end{flushleft}
 \end{table}
 
- \subsection{Time series uses cases already covered by ObsCore1.1}
+ \subsection{Time series use cases already covered by ObsCore1.1}
  Several uses-cases for time series discoveries were considered in the ObsCore 1.1 specification, built on its short list of time related features.
 They are available in appendix A in section A.4. Discovering time series.
-Here the \emph{dataproduct\_type} value is "timeseries", very general, but the same uses cases can be applied for more specific time sampled datasets like "time-cube" or or "light-curve" available now in the \textbf{product-type} vocabulary .
-ObsCore uses cases are also provided  in a web page available at : \url{http://saada.unistra.fr/voexamples/show/ObsCore/}.
+Here the \emph{dataproduct\_type} value is "timeseries", very general, but the same use cases can be applied for more specific time sampled datasets like "time-cube" or or "light-curve" available now in the \textbf{product-type} vocabulary .
+ObsCore use cases are also provided  in a web page available at : \url{http://saada.unistra.fr/voexamples/show/ObsCore/}.
 
  \section{Time parameters proposed for ObsCore Extension }
  \label{sec:timeext}
 
   \subsection{Time Frame description}
-  As mentioned in section \ref{sec:comtimeframe} the Time Frame description is essential for comparing various time series data sets.
+ As mentioned in section \ref{sec:comtimeframe} the Time Frame description used for the data is essential for comparing various time series data sets.
 This metadata was described first in the STC data model  \citep{2007ivoa.spec.1030R}, then  in the Coords DM \citep{2022ivoa.specQ1004R}, and serialized in the  VOTABLE format in the TimeSYS element.
 Up to now, this metadata  was not defined in ObsCore1.1. It is coded into the VOTable  metadata of the dataset.
 Having  it as  part of the query response coming back for a search for time series would help the user application to interpret time stamps precisely.
-MJD is the time format used for an ObsTAP query related to time.
+%MJD is the time format used for an ObsTAP query related to time.
 We propose to add the time frame parameters in the Time ObsCore extension.
 These various definitions are harmonized in the proposal given in  table \ref{tab:timereff}. We list the corresponding terms used in the Coords Data model and in the UCD vocabulary, as well as the attribute of the TIMESYS param defined for VOTable serialization.
 All terms are proposed as mandatory, but can be set to UNKNOWN if not available.
@@ -547,9 +547,9 @@ Both attributes enable to study the periodicity of the signal and compare betwee
 
  Therefore the Time extension for ObsCore should rely on mandatory parameters.
  If they cannot be retrieved nor calculated from the data they may be set to UNKNOWN.
- In order to warn users that extra time parameters have been included in ObsTAP, we propose to gather them  in another table named \emph{ivoa.t-obs}
+ In order to warn users that extra time parameters have been included in ObsTAP, we propose to gather them  in another table named \emph{ivoa.time-obscore}
  for services that distribute time sampled data sets.
- The utype column in  \emph{ivoa.t\_obs} should be the standard identifier of this specification, so here \texttt{ivo://ivoa.net/std/obscore\#t-obs-1.0}.
+ The utype column in  \emph{ivoa.t\_obs} should be the standard identifier of this specification, so here \texttt{ivo://ivoa.net/std/obscore\#time-obs-1.0}.
 
  If this table contains an identifier for the corresponding dataset described in main \emph{ivoa.obscore} table, then it is easy to join  general ObsCore properties to the time specific ones in an ADQL query.
  Here is a query  example :  ( to be checked)
@@ -567,7 +567,7 @@ Both attributes enable to study the periodicity of the signal and compare betwee
 Other examples of queries using these extra parameters are proposed in Appendix \ref{sec:query_examples}.
 
 More generally, other extensions can be considered in ObsTAP, like the radio extension or high energy extension specific to these spectral domains and instrumentations.
-In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.t-obs, ivoa.radio, ivoa.heig etc.... when needed.
+In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.time-obscore, ivoa.radio-obscore, ivoa.heig-obscore etc.... when needed.
 This would help to identify ObsCore services with their version and discover all ObsCore table extensions in the TAP service description in order to write up queries with JOIN. 
 
 % exemples of joins
@@ -580,7 +580,7 @@ This would help to identify ObsCore services with their version and discover all
 % NOTE: IVOA recommendations must be cited from docrepo rather than ivoabib
 % (REC entries there are for legacy documents only)
 %\section{References}
-\bibliography{ivoatex/ivoabib, ivoatex/docrepo, myref}
+
  % note:TSSerialisationNote
 
 
@@ -589,8 +589,9 @@ This would help to identify ObsCore services with their version and discover all
 
 
 \section{Query examples for join tables}\label{sec:query_examples}
-\todo{Other examples of join and uses cases}
+\include{Time_domain_discovery_Use-cases}
 
+\bibliography{ivoatex/ivoabib, ivoatex/docrepo, myref}
 \section{Previous work on the Time series characterization and description}.
 
 \begin{itemize}

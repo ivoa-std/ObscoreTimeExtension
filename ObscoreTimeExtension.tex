@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
 %\usepackage[table]{xcolor}
-\usepackage{todonotes}
+%\usepackage{todonotes}
 
 \usepackage{listings}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -156,7 +156,7 @@ The extension mechanism in TAP is discussed in section \ref{sec:comext} with use
 \end{figure}
 
 Fig.~\ref{fig:archdiag} shows the role this document plays within the
-IVOA architecture \citep{p{2021ivoa.spec.1101D}. This specification builds up a metadata profile that must be used in a TAP service based on the ObsTAP TAP schema.
+IVOA architecture \citep{2021ivoa.spec.1101D}. This specification builds up a metadata profile that must be used in a TAP service based on the ObsTAP TAP schema.
 It relies on fundamental  standards like TAP, VOTable, UCD, VOUnits and Vocabularies defined in the IVOA  for data product type and TimeReference systems
 for instance.
 
@@ -577,8 +577,8 @@ Both attributes enable to study the periodicity of the signal and compare betwee
 Other examples of queries using these extra parameters are proposed in Appendix \ref{sec:query_examples}.
 
 More generally, other extensions can be considered in ObsTAP, like the radio extension or high energy extension specific to these spectral domains and instrumentations.
-In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.time-obscore, ivoa.radio-obscore, ivoa.heig-obscore etc.... when needed. 
-\todo{table names to be discussed }.
+In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.time-obscore, ivoa.radio-obscore, ivoa.heig-obscore etc.... when needed. \\
+TBC table names to be discussed ???.
 This would help to identify ObsCore services with their version and discover all ObsCore table extensions in the TAP service description in order to write up queries with JOIN. 
 
 % exemples of joins

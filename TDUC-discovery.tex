@@ -37,14 +37,16 @@
   III. Number of time slots > 30
   \end{lstlisting}
  
- % trouver des MASER sources radio variables avec un SNR suffisant --> convertit en t_exp_min > seuil 
+ %looking for Pulsar data  
 \begin{lstlisting} [language=SQL, caption= Show me a list of all data matching a light curve for a radio source ]
     I. DataType='light-curve'
-   II. Band corresponds to Radio %em_min > radio_min   and em_max < radiomax xxx 
+   II. Band corresponds to Radio frequency min> 30MHz and frequency max < 30 GHz
+  %em_min > radio_min   and em_max < radiomax 
    III. Minimum time sample exposure > 3s 
    IV. Number of time slots > 10
    \end{lstlisting} 
- % trouver des light_curve comparables à celles de ma liste de source qui sont en TDB Barycenter
+   
+ % trouver des light_curve comparables Ã  celles de ma liste de source qui sont en TDB Barycenter
  \begin{lstlisting} [language=SQL, caption=Show me a list of all data products using a specified Time system ]
    Show me a list of all data products using a specified Time system  
     I. DataType='light-curve' or 'time-series'
@@ -55,7 +57,7 @@
  % identifier des transits de planetes 
  TBC planet transit ? TESS ?? 
  
- % identifier des systemes d'étoiles binaires 
+ % identifier des systemes d'Ã©toiles binaires 
 TBC binary stars ??
  
  % nature article https://doi.org/10.1038/s41586-023-06787-x
@@ -68,7 +70,8 @@ TBC binary stars ??
  \begin{lstlisting} [language=SQL, caption=Show me a list of light curves around object   \emph{SN 2022jli}]
     I. DataType='light-curve' 
     II. target position close to SN 2022jli
-    III. em_min >  10  and em_max <  1.0E-8 % radio  and Xray , gammaray
+    III. em_min >  10  and em_max <  1.0E-8 
+    % radio  and Xray and Gamma ray
     VI. Observation data before Sept 31, 2023
     VII. Observation data after Sept 01, 2022    
    \end{lstlisting}
@@ -77,7 +80,7 @@ TBC binary stars ??
   \begin{lstlisting} [language=SQL, caption=Show me a list of light curves around object   \emph{SN 2022jli}]
      I. DataType='light-curve' 
     II. Data collection like Fermi-Lat 
-    IV. t_min > 59823     %Observation data before sept 31, 2023
+    IV. t_min > 59823   %Observation data before sept 31, 2023
     V. t_max < 60218   % Observation data after sept 01, 2022
   \end{lstlisting}
   

@@ -37,13 +37,15 @@
   III. Number of time slots > 30
   \end{lstlisting}
  
- % trouver des MASER sources radio variables avec un SNR suffisant --> convertit en t_exp_min > seuil 
+ %looking for Pulsar data  
 \begin{lstlisting} [language=SQL, caption= Show me a list of all data matching a light curve for a radio source ]
     I. DataType='light-curve'
-   II. Band corresponds to Radio %em_min > radio_min   and em_max < radiomax xxx 
+   II. Band corresponds to Radio frequency min> 30MHz and frequency max < 30 GHz
+  %em_min > radio_min   and em_max < radiomax 
    III. Minimum time sample exposure > 3s 
    IV. Number of time slots > 10
    \end{lstlisting} 
+   
  % trouver des light_curve comparables à celles de ma liste de source qui sont en TDB Barycenter
  \begin{lstlisting} [language=SQL, caption=Show me a list of all data products using a specified Time system ]
    Show me a list of all data products using a specified Time system  

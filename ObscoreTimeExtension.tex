@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper]{ivoa}
 \input tthdefs
+\input gitmeta
 %\usepackage[table]{xcolor}
 %\usepackage{todonotes}
 
@@ -105,7 +106,7 @@ for time-resolved data sets.
 
 \section*{Acknowledgments}
 This work has been supported by various national projects related to the development of the Virtual Observatory.
- We acknowledge support of the  ESCAPE project (the European Science Cluster of Astronomy and Particle Physics ESFRI Research Infrastructures) funded by the EU Horizon 2020 research and innovation program under the Grant Agreement n.824064. Thanks to fruitful discussion with people involved in the VESPA project and EPNCore specification. 
+ We acknowledge support of the  ESCAPE project (the European Science Cluster of Astronomy and Particle Physics ESFRI Research Infrastructures) funded by the EU Horizon 2020 research and innovation program under the Grant Agreement n.824064. Thanks to fruitful discussion with people involved in the VESPA project and EPNCore specification.
  Additional funding was provided by the INSU (Action Sp\'ecifique Observatoire Virtuel, ASOV), the Action F\'ed\'eratrice CTA at the Observatoire de Paris and the Paris Astronomical Data Centre (PADC).
 
 \section*{Conformance-related definitions}
@@ -178,11 +179,11 @@ To clarify the vocabulary here we consider a time series as a sequence of signal
 \end{center}
 \end{figure}
 
-Considering how observations in general can be spanned along the time axis, we can sketch Time Series data as shown in Fig.~\ref{fig:time-series}. Time Series data is composed of a set of observations (n\_observations = 3 in this example), each with a different exposure or integration time (t\_exp). 
+Considering how observations in general can be spanned along the time axis, we can sketch Time Series data as shown in Fig.~\ref{fig:time-series}. Time Series data is composed of a set of observations (n\_observations = 3 in this example), each with a different exposure or integration time (t\_exp).
 
-Although in some cases the cadence or time span between each signal integration (delta\_t) is fixed, in the general case it can be different and we can therefore define a minimum and a maximum value (delta\_t\_min, delta\_t\_max). Each observation has it's own time stamp (\emph{t\_i)} with a given precision or resolution (t\_resolution). 
+Although in some cases the cadence or time span between each signal integration (delta\_t) is fixed, in the general case it can be different and we can therefore define a minimum and a maximum value (delta\_t\_min, delta\_t\_max). Each observation has it's own time stamp (\emph{t\_i)} with a given precision or resolution (t\_resolution).
 
-As can be seen from this figure the duration of the observation can be defined in different ways: a) as the total integration or exposure time, i.~e. the sum of all the exposure times: \emph{t\_exp\_total }= $\sum$ \emph{t\_exp} ; this represents the support along the time axis and is definitely different from  the elapsed time  \emph{t\_elapsed} = \emph{t\_max} - \emph{time\_min}). Note that in the case that the exposure time is constant for all the observations then \emph{t\_exp\_total }= n\_observations $\times$ \emph{t\_exp}. 
+As can be seen from this figure the duration of the observation can be defined in different ways: a) as the total integration or exposure time, i.~e. the sum of all the exposure times: \emph{t\_exp\_total }= $\sum$ \emph{t\_exp} ; this represents the support along the time axis and is definitely different from  the elapsed time  \emph{t\_elapsed} = \emph{t\_max} - \emph{time\_min}). Note that in the case that the exposure time is constant for all the observations then \emph{t\_exp\_total }= n\_observations $\times$ \emph{t\_exp}.
 
 The situation can be more complicated, for instance during the observation there could be clouds and we therefore pause the exposure for a while and resume once the cloud has passed or we might want to remove parts of the observation due to artefacts in the data. In any case these values can be taken as approximative of the minimum and the maximum value this specific field can have.
 
@@ -295,7 +296,7 @@ ObsCore has a normalized description of the data content along the various physi
 The spatial properties are described in the \emph{s\_*} group, the spectral ones in \emph{em\_*} group, the temporal ones in \emph{t\_*}, etc.
 For each data set there is a minimal  set of metadata to describe its sky position, spectral band, time interval, etc. which are independent from each other.
 
-This allows to enhance time sampling description by adding new parameters to the time group, in order to warrant backward compatibility to ObsCore 1.1 . 
+This allows to enhance time sampling description by adding new parameters to the time group, in order to warrant backward compatibility to ObsCore 1.1 .
 
 \subsection{Extension of ObsCore based on EPNCore}
 Astronomy and space science both consider time series data and have proposed metadata data description for it. Some metadata have already been defined and used in the context of data discovery using ObsCore \citep{2017ivoa.spec.0509L}, and the remaining ones have been defined in the context of planetary data in the EPNcore specification \citep{2022ivoa.spec.0822E}. In Table~\ref{tab:obs_epn} we show the equivalence between the fields we require here and those existing in  ObsCore and EPNcore specifications.
@@ -579,7 +580,7 @@ Other examples of queries using these extra parameters are proposed in Appendix 
 More generally, other extensions can be considered in ObsTAP, like the radio extension or high energy extension specific to these spectral domains and instrumentations.
 In an extended ObsTAP service the main ObsCore table and the other extension tables must be gathered in a TAP\_SCHEMA with utype \\ \texttt{ivo://ivoa.net/std/obscore1.1}, for version 1.1 and containing the different tables : ivoa.obscore, ivoa.time-obscore, ivoa.radio-obscore, ivoa.heig-obscore etc.... when needed. \\
 TBC table names to be discussed ???.
-This would help to identify ObsCore services with their version and discover all ObsCore table extensions in the TAP service description in order to write up queries with JOIN. 
+This would help to identify ObsCore services with their version and discover all ObsCore table extensions in the TAP service description in order to write up queries with JOIN.
 
 % exemples of joins
 
